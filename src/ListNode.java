@@ -3,39 +3,21 @@ import java.util.Arrays;
 class Main {
     public static void main(String[] args){
         System.out.println(
-                find(new int[] {2, 6, 8, -10, 3})
+                findEvenIndex(new int[] {1,2,3,4,5,6})
         );
     }
-    static int find(int[] integers) {
+    // Equal Sides of an array
+    public static int findEvenIndex(int[] arr) {
+        for (int i = 0;i < arr.length;i++) {
+            int[] splitedFrist = Arrays.copyOfRange(arr,0,i);
+            int[] splitedSecond = Arrays.copyOfRange(arr,i+1,arr.length);
 
-        int isEven = 0;
-        int isOdd = 0;
-
-        for (int i = 0; i < integers.length;i++) {
-            if (integers[i] % 2 == 0) {
-                isOdd++;
-            }
-            else {
-                isEven++;
+            if (Arrays.stream(splitedFrist).sum() == Arrays.stream(splitedSecond).sum()) {
+                return i;
             }
         }
-        if (isEven == 1) {
-            for (int i = 0;i < integers.length;i++) {
-                if (integers[i] % 2 != 0) {
-                    return integers[i];
-                }
-            }
-        }
-        if (isOdd == 1) {
 
-            for (int i = 0;i < integers.length;i++) {
-                if (integers[i] % 2 == 0) {
-                    return integers[i];
-                }
-        }
-        }
-        return 0;
-
+        return -1;
     }
 }
 
