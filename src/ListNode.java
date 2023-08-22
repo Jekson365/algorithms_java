@@ -1,12 +1,45 @@
+import java.math.BigInteger;
 import java.util.Arrays;
 import java.util.Objects;
 
 class Main {
     public static void main(String[] args){
-        System.out.println(camelCase("HelloWorld"));
+        System.out.println(
+                add("100","50")
+        );
     }
 
-    // greed is good -> skiped!
+    public static String add(String a, String b) {
+        return String.valueOf(new BigInteger(a).add(new BigInteger(b)));
+    }
+
+
+    // greed is good
+    public static int greedy(int[] dice){
+        //code here
+        int result = 0;
+        int[] scores = new int[] {100,200,300,400,500,600,1000};
+        int count = 0;
+
+        for (int i =0;i < dice.length;i++) {
+            if (dice[i] == 1) {
+                count++;
+            }
+        }
+
+
+        return result;
+    }
+    public static int countCharacters(int[] dice,int c) {
+        int result = 0;
+
+        for (int die : dice) {
+            if (die == c) {
+                result++;
+            }
+        }
+        return result;
+    }
     // Break camelCase
     public static String camelCase(String input) {
 //        if (Objects.equals(input, "")) return "";
